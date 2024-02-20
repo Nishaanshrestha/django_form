@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>My Tasks</h1>
+    <a href={% url "create_task" %}><button>Add Task</button></a>
+    <table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Due Date</th>
+        <th>Priority</th>
+        <th>Owner</th>
+    </tr>
+</thead>
+{% for rows in data %}
+<tbody>
+    <tr>
+        <td>{{rows.id}}</td>
+        <td>{{rows.title}}</td>
+        <td>{{rows.description}}</td>
+        <td>{{rows.due_date}}</td>
+        <td>{{rows.priority}}</td>
+        <td>{{rows.owner}}</td>
+    </tr>
+</tbody>
+{% endfor %}
+    </table>
+
+    
+{% endblock content %}
+
